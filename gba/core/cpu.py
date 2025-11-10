@@ -63,9 +63,10 @@ class CPU:
     
     # --- Reset/Init ---
     def reset(self, start_pc: int) -> None:
+        self.regs = [0] * 16
         self.pc = start_pc
         self.cpsr = 0x00000010  # System mode, ARM state
-        self.regs = [0] * 16
+        
 
     # --- Fetch Helpers ---
     def fetch_32(self, addr: int) -> int:
